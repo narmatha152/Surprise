@@ -1,0 +1,167 @@
+/* ═══════════════════════════════════════════════
+   MEMORY CAROUSEL — Vertical Portrait Card
+   ═══════════════════════════════════════════════ */
+
+.carousel-stage {
+  padding: 1.5rem 1rem 2rem;
+  align-items: flex-start;
+  justify-content: center;
+  overflow-y: auto;
+  min-height: 100vh;
+}
+
+/* ── Outer container ──────────────────────────── */
+.carousel-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  width: 100%;
+  max-width: 360px;   /* narrow so portrait images look natural */
+  z-index: 1;
+  padding: 1rem 0 2.5rem;
+}
+
+.carousel-eyebrow {
+  font-family: var(--font-script);
+  font-size: 1.05rem;
+  color: var(--color-gold);
+  letter-spacing: 1px;
+}
+
+.carousel-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 4vw, 1.7rem);
+  font-weight: 700;
+  text-align: center;
+}
+
+/* ── Card ─────────────────────────────────────── */
+.carousel-card {
+  width: 100%;
+  border: 1px solid var(--glass-border-gold);
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 0;
+  transition: opacity 0.38s ease, transform 0.38s ease;
+}
+
+.carousel-card.slide-next { opacity: 0; transform: translateX(50px) scale(0.96); }
+.carousel-card.slide-prev { opacity: 0; transform: translateX(-50px) scale(0.96); }
+.carousel-card.slide-in   { opacity: 1; transform: translateX(0) scale(1); }
+
+/* ── Image wrapper — NO fixed height, grows with image ── */
+.carousel-img-wrap {
+  position: relative;
+  width: 100%;
+  /* No height / aspect-ratio — lets the image dictate its own height */
+}
+
+/* ── The image itself — FULL height, no crop ─── */
+.carousel-img {
+  width: 100%;
+  height: auto;          /* ← key: natural height, zero cropping */
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.carousel-card:hover .carousel-img { transform: scale(1.02); }
+
+/* thin gradient at bottom of image for text readability */
+.img-overlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 70px;
+  background: linear-gradient(transparent, rgba(5,0,6,0.75));
+  pointer-events: none;
+}
+
+/* ── Text info below image ─────────────────────── */
+.carousel-info {
+  padding: 1rem 1.2rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  background: rgba(255,255,255,0.04);
+}
+
+.carousel-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.carousel-desc {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.6;
+}
+
+/* ── Navigation ───────────────────────────────── */
+.carousel-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.nav-btn {
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  background: var(--glass-bg-md);
+  border: 1px solid var(--glass-border-gold);
+  color: var(--color-gold);
+  font-size: 1.9rem;
+  line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  backdrop-filter: var(--glass-blur);
+}
+
+.nav-btn:hover {
+  background: rgba(255,209,102,0.15);
+  box-shadow: var(--shadow-gold);
+  transform: scale(1.12);
+}
+
+.carousel-dots {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  padding: 0;
+}
+
+.dot.active {
+  background: var(--color-gold);
+  width: 22px;
+  border-radius: 99px;
+  box-shadow: 0 0 8px var(--color-gold);
+}
+
+.carousel-counter {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 1px;
+}
+
+.next-btn {
+  padding: 0.9rem 2.5rem;
+  margin-top: 0.2rem;
+}
+
+/* ── Responsive ───────────────────────────────── */
+@media (max-width: 420px) {
+  .carousel-container { max-width: 100%; padding: 0.5rem 0 2.5rem; }
+  .carousel-info { padding: 0.8rem 1rem 1.2rem; }
+}

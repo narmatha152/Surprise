@@ -1,0 +1,61 @@
+/* ============================================================
+   THEME TOKENS — Global CSS Variables
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@600;700&display=swap');
+
+:root {
+  /* Colors */
+  --color-black:        #050006;
+  --color-dark-purple:  #260019;
+  --color-deep-magenta: #68003F;
+  --color-pink-magenta: #C90078;
+  --color-bright-pink:  #FF008C;
+  --color-gold:         #FFD166;
+  --color-soft-gold:    #F6C453;
+  --color-white:        #FFFFFF;
+
+  /* Main gradient */
+  --gradient-main: linear-gradient(160deg,
+    #050006 0%,
+    #260019 25%,
+    #68003F 55%,
+    #C90078 78%,
+    #FF008C 100%
+  );
+
+  /* Text gradient */
+  --gradient-text: linear-gradient(135deg, #FFD166 0%, #FF008C 50%, #C90078 100%);
+  --gradient-gold: linear-gradient(135deg, #FFD166 0%, #F6C453 100%);
+
+  /* Glass */
+  --glass-bg:     rgba(255, 255, 255, 0.04);
+  --glass-bg-md:  rgba(255, 255, 255, 0.08);
+  --glass-bg-lg:  rgba(255, 255, 255, 0.12);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-border-gold: rgba(255, 209, 102, 0.3);
+  --glass-blur:   blur(20px);
+  --glass-blur-lg: blur(40px);
+
+  /* Shadows */
+  --shadow-pink:  0 0 40px rgba(255, 0, 140, 0.3);
+  --shadow-gold:  0 0 30px rgba(255, 209, 102, 0.25);
+  --shadow-glow:  0 0 60px rgba(201, 0, 120, 0.4);
+  --shadow-card:  0 8px 32px rgba(0, 0, 0, 0.4);
+
+  /* Fonts */
+  --font-display:  'Playfair Display', serif;
+  --font-body:     'Inter', sans-serif;
+  --font-script:   'Dancing Script', cursive;
+
+  /* Spacing */
+  --radius-sm:  8px;
+  --radius-md:  16px;
+  --radius-lg:  24px;
+  --radius-xl:  32px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast:   0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow:   0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}

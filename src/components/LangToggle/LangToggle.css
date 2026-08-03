@@ -1,0 +1,43 @@
+.lang-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: rgba(20, 0, 30, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 105, 180, 0.45);
+  border-radius: 999px;
+  padding: 0.4rem 0.85rem;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.5);
+  transition: border-color 0.25s, box-shadow 0.25s;
+  box-shadow: 0 0 14px rgba(255, 20, 147, 0.15);
+}
+
+.lang-toggle:hover {
+  border-color: rgba(255, 105, 180, 0.85);
+  box-shadow: 0 0 20px rgba(255, 20, 147, 0.35);
+}
+
+.lang-option {
+  transition: color 0.25s;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.lang-option.active {
+  color: #FF69B4;
+  text-shadow: 0 0 8px rgba(255, 105, 180, 0.9);
+}
+
+.lang-divider {
+  color: rgba(255, 255, 255, 0.2);
+  font-weight: 300;
+}

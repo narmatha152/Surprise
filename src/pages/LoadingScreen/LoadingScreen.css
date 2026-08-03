@@ -1,0 +1,137 @@
+.loading-stage { flex-direction: column; }
+
+.loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.8rem;
+  z-index: 1;
+  text-align: center;
+  padding: 2rem;
+}
+
+/* Ring loader */
+.loader-ring-wrap {
+  position: relative;
+  width: 160px;
+  height: 160px;
+}
+
+.loader-ring {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.ring-track {
+  fill: none;
+  stroke: rgba(255,255,255,0.08);
+  stroke-width: 6;
+}
+
+.ring-fill {
+  fill: none;
+  stroke: url(#ringGrad);
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-dasharray: 327;
+  transition: stroke-dashoffset 0.06s linear;
+  filter: drop-shadow(0 0 8px rgba(255,0,140,0.6));
+}
+
+.loader-inner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.loader-emoji {
+  font-size: 2rem;
+  animation: float 2s ease-in-out infinite;
+}
+
+.loader-pct {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Orbiting dots */
+.orbit-dot {
+  position: absolute;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  top: 50%; left: 50%;
+  background: var(--color-gold);
+  box-shadow: 0 0 8px var(--color-gold);
+  animation: orbit 2s linear infinite;
+  animation-delay: calc(var(--i) * 0.67s);
+  transform-origin: 0 0;
+}
+
+@keyframes orbit {
+  0%   { transform: translate(-50%,-50%) rotate(0deg) translateX(85px) scale(1); }
+  50%  { transform: translate(-50%,-50%) rotate(180deg) translateX(85px) scale(0.6); }
+  100% { transform: translate(-50%,-50%) rotate(360deg) translateX(85px) scale(1); }
+}
+
+.loading-main-text {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 4vw, 1.8rem);
+  font-style: italic;
+  color: rgba(255,255,255,0.9);
+  letter-spacing: 0.5px;
+}
+
+.loading-phase-text {
+  font-size: 0.95rem;
+  color: var(--color-gold);
+  letter-spacing: 1px;
+  min-height: 1.5rem;
+  font-family: var(--font-script);
+  font-size: 1.1rem;
+  transition: opacity 0.5s ease;
+}
+
+/* Progress bar */
+.progress-bar-track {
+  width: min(300px, 80vw);
+  height: 4px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #C90078, #FF008C, #FFD166);
+  transition: width 0.06s linear;
+  box-shadow: 0 0 10px rgba(255,0,140,0.6);
+}
+
+/* Sparkles */
+.loading-sparkles {
+  display: flex;
+  gap: 1.2rem;
+  color: var(--color-gold);
+}
+
+.spark {
+  font-size: 1.1rem;
+  animation: sparkPulse 1.5s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 0.3s);
+}
+
+@keyframes sparkPulse {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50%       { opacity: 1;   transform: scale(1.2); }
+}

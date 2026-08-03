@@ -1,0 +1,22 @@
+.fireflies-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.firefly {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, #FFE566 0%, #FFD166 40%, transparent 100%);
+  box-shadow: 0 0 6px 2px #FFD16699, 0 0 12px 4px #FFD16633;
+  animation: fireflyMove ease-in-out infinite alternate;
+}
+
+@keyframes fireflyMove {
+  0%   { transform: translate(0, 0); opacity: 0.2; }
+  30%  { opacity: 0.9; }
+  60%  { opacity: 0.5; }
+  100% { transform: translate(var(--tx), var(--ty)); opacity: 0.1; }
+}
