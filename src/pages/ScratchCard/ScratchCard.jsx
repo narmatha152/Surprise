@@ -219,7 +219,7 @@ function LetterCard({ onClose, onNext, lang, t }) {
         clearInterval(timer);
         setDone(true);
       }
-    }, 28);
+    }, 65);
     return () => clearInterval(timer);
   }, [content.length]);
 

@@ -16,14 +16,14 @@ import memHand   from '../assets/memory/memory_hand.jpeg';
 import scratchCardImg     from '../assets/story/scratch_card_img.jpg';
 import videoMemory        from '../assets/story/vedio_memory.mov';
 import story12th          from '../assets/story/12th_img.webp';
-import storyBby           from '../assets/story/bby_img.webp';
+import storyBby           from '../assets/story/bby_img.png';
 import storyBluetooth     from '../assets/story/bluthooth_img.png';
 import storyBluetooth2    from '../assets/story/blutooth_img2.png';
 import storyCheeksKiss    from '../assets/story/cheeks_kiss_img.webp';
 import storyChestSleep    from '../assets/story/chestsleep_img.webp';
 import storyCollege       from '../assets/story/college_img.webp';
 import storyEighth        from '../assets/story/eigth_img.webp';
-import storyFifth         from '../assets/story/fifth_img.webp';
+import storyFifth         from '../assets/story/fifth_img.png';
 import storyForeheadKiss  from '../assets/story/forehead_kiss_img.png';
 import storyLeft          from '../assets/story/left_img.webp';
 import storyMirrorHug     from '../assets/story/mirror_hug_img.webp';
@@ -38,7 +38,7 @@ import puzzleImg          from '../assets/story/puzzle_img.jpeg';
 // ============================================================
 
 export const birthdayConfig = {
-  name: "Jeeva",
+  name: "Jeeva Mama",
   loadingDuration: 5000,
   correctAnswers: ["narmatha", "narmadha"],
   secretQuestion: "Who is your favourite girl in this world? 💖",
@@ -81,14 +81,14 @@ export const uiText = {
     qLockCorrect: "✨ Yes! That's right! Opening... 💖",
     qLockAngryText1: "That's not right! 😤",
     qLockAngryText2: "Think harder... you know who! 💭",
-    qLockAngrySub: "( Hint: She's amazing 💖 )",
+    qLockAngrySub: "( Hint: She's rowdy 💖 )",
     qLockAngryPlaceholder: "Come on, you know her! 💫",
     qLockAngryBtn: "Try Again 💪",
     qLockUnlockBtn: "Unlock 🔓",
     qLockOpeningBtn: "Opening ✨",
 
     // LoadingScreen
-    loadMainText: "Opening something special for you...",
+    loadMainText: "Opening something special for you Mine...",
     loadPhases: [
       'Unlocking your surprise...',
       'Sprinkling some magic ✨',
@@ -115,7 +115,7 @@ export const uiText = {
     puzHintFine: "Drag and drop pieces to rearrange",
     puzLoading: "Loading image... ✨",
     puzSuccess: "You solved it! 🥳",
-    puzCaption: "Ammu, idhu mari oru frame in future laum edukakanum namba... 💖",
+    puzCaption: "Ammu, idhu mari oru frame in future la namalum edukakanum...💖konjam cringe ah eruko srikadha da 😅",
     puzFinalBtn: "Final Surprise ✨",
     puzShuffleBtn: "↺ Shuffle Again",
 
@@ -226,14 +226,14 @@ export const uiText = {
 
 // ── Memory Carousel — 8 real photos ────────────────────────
 export const memories = [
-  { id: 1, image: memOne,   title: "A Golden Beginning ✨",  description: "Every great story has a beautiful beginning. This is ours.", titleTa: "ஒரு அழகான ஆரம்பம் ✨", descriptionTa: "ஒவ்வொரு சிறந்த கதைக்கும் ஒரு அழகான ஆரம்பம் உண்டு. இது நம்மோடது." },
-  { id: 2, image: memTwo,   title: "Pure Joy 💛",            description: "Moments like these are the ones we carry forever in our hearts.", titleTa: "முழுமையான மகிழ்ச்சி 💛", descriptionTa: "இந்த மாதிரி தருணங்களை தான் நம்ம மனசுல எப்பவும் சுமப்போம்." },
-  { id: 3, image: memThree, title: "Smiles That Heal 🌸",    description: "Your smile has the power to brighten the darkest of days.", titleTa: "குணமாக்கும் புன்னகை 🌸", descriptionTa: "உன் சிரிப்புக்கு இருண்ட நாட்களை கூட பிரகாசமாக்கற சக்தி இருக்கு." },
-  { id: 4, image: memFour,  title: "Together Always 💖",     description: "The best moments are the ones spent with someone special.", titleTa: "எப்பவும் ஒண்ணா 💖", descriptionTa: "சிறந்த தருணங்கள் நாம ஸ்பெஷலான ஒருத்தரோட செலவழிக்கறது தான்." },
-  { id: 5, image: memFive,  title: "Memories to Keep 🌟",   description: "Not all treasures are gold — some are memories.", titleTa: "பொக்கிஷமான நினைவுகள் 🌟", descriptionTa: "எல்லா பொக்கிஷமும் தங்கம் இல்ல — சிலது நினைவுகள்." },
-  { id: 6, image: memSix,   title: "Endless Warmth 🌅",     description: "In every moment with you, the world feels warm and perfect.", titleTa: "முடிவில்லாத அரவணைப்பு 🌅", descriptionTa: "உன்கூட இருக்கற ஒவ்வொரு நிமிஷமும் உலகம் ரொம்ப அழகா தெரியுது." },
-  { id: 7, image: memSeven, title: "You & Me 💕",            description: "Side by side, every moment becomes a beautiful memory.", titleTa: "நீயும் நானும் 💕", descriptionTa: "கைகோர்த்து நடக்கும் ஒவ்வொரு தருணமும் அழகான நினைவாக மாறுது." },
-  { id: 8, image: memHand,  title: "Holding On 🤝",          description: "This hand I never want to let go — ever.", titleTa: "கைவிடாத நேசம் 🤝", descriptionTa: "இந்த கையை நான் எப்பவும் விடமாட்டேன்." },
+  { id: 1, image: memOne,   title: "A Golden Beginning ✨",  description: "Every great story has a beautiful beginning. This is ours. Do you remember this day? 💖 You came all the way to Pondicherry for me — we were both so nervous, our stomachs were literally shivering! And this was our very first selfie too. 😊", titleTa: "ஒரு அழகான ஆரம்பம் ✨", descriptionTa: "ஒவ்வொரு சிறந்த கதைக்கும் ஒரு அழகான ஆரம்பம் உண்டு — இது நம்மோடது. இந்த நாள் ஞாபகமிருக்கா? 💖 நீ எனக்காக பாண்டிச்சேரி வரைக்கும் வந்தே — நாம் ரெண்டு பேரும் ரொம்ப nervous-ஆ இருந்தோம், வயிறே சிலிர்திடுச்சு! இதுதான் நம்ம முதல் selfie-யும் கூட. 😊" },
+  { id: 2, image: memTwo,   title: "Pure Joy 💛",            description: "Moments like these are the ones we carry forever in our hearts. Actually, I really wanted to hold your hand and take a picture — so I hesitated for so long before suddenly just grabbing your hand! 😄", titleTa: "முழுமையான மகிழ்ச்சி 💛", descriptionTa: "இந்த மாதிரி தருணங்களை தான் நம்ம மனசுல எப்பவும் சுமப்போம். உண்மையிலேயே உன் கையை பிடிச்சு ஒரு picture எடுக்கணும்னு ரொம்ப ஆசை — அதுக்காக ரொம்ப நேரம் யோசிச்சு யோசிச்சு, திடீர்னு கையை பிடிச்சுட்டேன்! 😄" },
+  { id: 3, image: memThree, title: "Smiles That Heal 🌸",    description: "Your smile has the power to brighten the darkest of days. Look at this — this is my absolute favourite picture. The warm glow on your face, that soft little smile… I completely melted, ammu. 🥹", titleTa: "குணமாக்கும் புன்னகை 🌸", descriptionTa: "உன் சிரிப்புக்கு இருண்ட நாட்களை கூட பிரகாசமாக்கற சக்தி இருக்கு. இதை பாரு — இது என்னோட favourite picture. உன் முகத்துல அந்த மொழுமொழுன்னு ஒரு சிரிப்பு... நான் இங்கே melt ஆயிட்டேன் அம்மு. 🥹" },
+  { id: 4, image: memFour,  title: "Together Always 💖",     description: "The best moments are the ones spent with someone special. In this picture, we were both waiting for the show to start — we came to relax, but honestly, every time I looked at you, I just wanted to hug you tight. 🫂", titleTa: "எப்பவும் ஒண்ணா 💖", descriptionTa: "சிறந்த தருணங்கள் நாம ஸ்பெஷலான ஒருத்தரோட செலவழிக்கறது தான். இந்த படத்துல நாம் show start ஆகணும்னு காத்திருந்தோம் — relax பண்ண வந்தோம் தான், ஆனா உன்னை பாக்கும்போதெல்லாம் உன்னை அணைச்சுக்கணும்னு மனசு சொல்லுச்சு. 🫂" },
+  { id: 5, image: memFive,  title: "Memories to Keep 🌟",   description: "Not all treasures are gold — some are memories.", titleTa: "பொக்கிஷமான நினைவுகள் 🌟", descriptionTa: "எல்லா பொக்கிஷமும் தங்கம் இல்ல — சிலது நினைவுகள். இந்த தருணங்கள் நம்ம மனசுல எப்பவும் தங்கி இருக்கும்." },
+  { id: 6, image: memSix,   title: "Endless Warmth 🌅",     description: "In every moment with you, the world feels warm and perfect. The first time your cheek was this close to mine — I felt such a rush, I was blushing the whole time! I may not look my best in this picture, but that moment is so very special to me. 🌸", titleTa: "முடிவில்லாத அரவணைப்பு 🌅", descriptionTa: "உன்கூட இருக்கற ஒவ்வொரு நிமிஷமும் உலகம் ரொம்ப அழகா தெரியுது. முதல் முறையா உன் கன்னம் என் கன்னத்துக்கு இவ்வளவு close-ஆ வந்தது — அந்த நாள் என் மனசே blush ஆச்சு! நான் இந்த picture-ல அவ்வளவு நல்லா தெரியல, ஆனா அந்த தருணம் எனக்கு ரொம்ப special. 🌸" },
+  { id: 7, image: memSeven, title: "You & Me 💕",            description: "Side by side, every moment becomes a beautiful memory. From 22 to my last breath, I would like to hold your hand just like this, ammu. Whenever I look at this picture, I feel like your most precious little girl. 💕", titleTa: "நீயும் நானும் 💕", descriptionTa: "கைகோர்த்து நடக்கும் ஒவ்வொரு தருணமும் அழகான நினைவாக மாறுது. 22 வயசிலிருந்து என் கடைசி மூச்சு வரை, இப்படியே உன் கையை பிடிச்சிருக்கணும்னு ஆசை அம்மு. இந்த படத்தை பாக்கும்போது நான் உன்னோட சொந்த பொண்ணு மாதிரி feel ஆகுது. 💕" },
+  { id: 8, image: memHand,  title: "Holding On 🤝",          description: "This hand I never want to let go — ever 💕. No matter what life brings, I want to hold this hand through all of it.", titleTa: "கைவிடாத நேசம் 🤝", descriptionTa: "இந்த கையை நான் எப்பவும் விடமாட்டேன் 💕. வாழ்க்கை என்ன கொண்டு வந்தாலும், உன் கையை பிடிச்சே கடக்கணும்னு ஆசை." },
 ];
 
 // ── Life Story Balloons — girl's love letter to the boy ────
@@ -374,72 +374,98 @@ export const scratchReveal = {
   messageTa: "என் உலகத்துல நீ தான் ரொம்ப ஸ்பெஷல் 💖\nபிறந்தநாள் வாழ்த்துக்கள் ஜீவா! 🎂✨\nஉன் கனவுகள் எல்லாம் நனவாகட்டும்! 🌟",
 };
 
-export const letterContent = `Dear Jeeva,
+export const letterContent = `To my dearest love, ❤️
 
-Some people walk into your life and quietly become
-the reason you believe in beautiful things again.
+En anbana jeevanukku iniya pirandhanaal vaazhthukkal. 💋💋
 
-You are one of those rare, magical people.
+Love you, thangoo. 💞 Today, I am celebrating your fourth birthday with you, and honestly, I still can't believe how quickly these four years have passed. 😭✨ It feels as though everything happened in the blink of an eye.
 
-From the very first moment I saw you,
-you brought warmth, light, and something
-impossible to describe into everything around you.
+There is something I have always wanted to tell you. I don't know how to explain it perfectly, but I hope you can understand what my heart is trying to say. ❤️
 
-I remember the days when we were just two people
-finding our way — and how naturally you became
-the person I wanted to find my way with.
+You have gone through so many struggles in your life, and somehow that pain touched my heart deeply. 🥺 Maybe that's one of the reasons I became so attached to you. From now on, I want to give you all the happiness that life forgot to give you before. 🌷
 
-Every memory I have of us is something I hold
-close to my heart. Every small moment,
-every laugh, every quiet second together —
-they all mean the world to me.
+More than anything else, I miss your presence. 🫂 I don't think a single day passes without you crossing my mind. Whatever I do, wherever I am, you are always in my heart. ❤️
 
-On this special birthday, I want you to know —
-you are deeply valued, endlessly celebrated,
-and genuinely loved — by me, always.
+I have fears and insecurities too. My biggest fear is losing you. 😔 No matter what happens, I don't want you to leave me. Even if I make mistakes, I want you to stay by my side. 🤍
 
-May this year bring you everything your
-beautiful heart deserves.
+I have seen many people come into my life and leave after showing me who they truly are. I hate that feeling. But you have never been like that. You have always been different, and that is one of the reasons I love you so much. 💖
 
-The world is better because you are in it. 🌍
+Sometimes, when you become distant or lost in your own world, I become scared. I wonder whether you will slowly forget me. I know I have already shared all these things with you, but I wanted to say them once again. Life is so short, and anything can happen tomorrow, so I never want to leave my feelings unsaid. 🌙✨
 
-Happy Birthday Jeeva 🎂
+Thank you for being in my life, ammu. 🫂 You are the best thing that has ever happened to me. I want to see you grow, achieve everything you dream of, and become the person you want to be. 🌻
 
-With all my love,
-Your person — always ✨`;
+I pray to the universe every day. I ask for all the happiness, success, peace, and blessings that are meant for me to be given to you instead. 🤍 And if life has any pain left, I wish I could carry it for you.
 
-export const letterContentTa = `அன்புள்ள ஜீவா,
+You are an amazing son to your parents, a caring brother to Mega, and a wonderful person to everyone around you. 💎 You are truly a gem.
 
-சிலர் நம்ம வாழ்க்கையில வந்து, அழகான விஷயங்கள் 
-மேல நமக்கு திரும்பவும் நம்பிக்கை வர வைப்பாங்க.
+No matter what thoughts run through your mind, I know how kind and honest your heart is. That beautiful heart of yours is one of the things I love the most. ❤️
 
-நீ அந்த மாதிரி ஒரு அபூர்வமான, மேஜிக்கான நபர்.
+Please take care of yourself. Eat properly, dress well, look after your health, and never think that you are falling behind in life. 🌸 Everything has its own time. Keep moving forward, keep trying, and when life finally opens those doors for you, hold on to them tightly. ✨
 
-உன்ன முதன்முதல்ல பாத்த நிமிஷத்துல இருந்து,
-நீ ஒரு அளவற்ற அன்பையும், வெளிச்சத்தையும்,
-விவரிக்க முடியாத ஒரு மகிழ்ச்சியையும் கொடுத்திருக்க.
+I know that good things are waiting for you because people with beautiful hearts deserve beautiful things. 🫂
 
-நாம ரெண்டு பேரும் நம்ம பாதைய தேடிட்டு இருந்த 
-அந்த நாட்கள் எனக்கு ஞாபகம் இருக்கு... எப்படி நீ 
-என் வாழ்க்கையோட மிக முக்கியமான ஒருத்தரா மாறுன 
-அப்படின்னு நினைக்கிறப்போ ரொம்ப ஆச்சரியமா இருக்கு.
+I love being part of your journey, and I want to continue walking beside you. Whatever happens, I promise to hold your hand and stand with you. 🤝❤️
 
-நம்மோட ஒவ்வொரு நினைவும் என் மனசுக்கு ரொம்ப 
-நெருக்கமானது. சின்ன சின்ன தருணங்கள், நாம 
-ஒன்றா சிரிச்சது, அமைதியா உக்கார்ந்திருந்த நொடிகள் — 
-எல்லாமே எனக்கு என் உலகம்.
+Trust me.
 
-இந்த ஸ்பெஷலான பிறந்தநாள்ல, நீ தெரிஞ்சுக்க 
-வேண்டிய ஒண்ணு — நீ எப்பவும் என் மனசுல 
-ஸ்பெஷலானவன், நீ எப்பவும் என்னால 
-அதிகமா நேசிக்கப்படுபவன்.
+I love you, my sweetheart. 💋❤️
 
-இந்த வருஷம் உன்னோட அழகான மனசுக்கு 
-தேவையான எல்லாமே கிடைக்கட்டும்.
+You are the boy I loved with all my heart. Whenever I think of you, my heart feels at peace. Even on the saddest days, the thought of you brings a smile to my face. 😊❤️
 
-நீ இருக்கறதால இந்த உலகம் இன்னும் அழகா இருக்கு. 🌍
+Nothing in this world can give me more happiness than knowing that you are with me.
 
-பிறந்தநாள் வாழ்த்துக்கள் ஜீவா 🎂
+Stay happy. Stay healthy. Stay mine. 🫂❤️
 
-என்றும் அன்புடன்,
-உன் அன்பானவள் ✨`;
+Happy birthday, Thangoo.🎂✨
+
+With all my love,🫂🫂🫂🫂 i want to hug you so hard and Missing you so much 🥺
+
+Your Ammu❤️`;
+
+export const letterContentTa = `என் அன்பான ஜீவாவுக்கு, ❤️
+
+ஜீவா, உனக்கு இனிய பிறந்தநாள் வாழ்த்துக்கள். 💋💋
+
+தங்கூ, உன்னோட இந்த பிறந்தநாளை உன்கூட கொண்டாடுறேன். 💞 இந்த நாட்கள் எவ்வளவு வேகமா ஓடிடுச்சு-ன்னு நினைக்கும்போதே ஆச்சர்யமா இருக்கு. 😭✨ கண்ணை மூடி திறக்கும் முன்னாலே எல்லாமே நடந்துடுச்சு மாதிரி feel ஆகுது.
+
+ஒரு விஷயம் உன்கிட்ட சொல்லணும்னு ரொம்ப நாளா இருந்துச்சு. சரியா எப்படி சொல்றதுன்னு தெரியல, ஆனா என் மனசு சொல்ல நினைக்கிறத நீ புரிஞ்சுக்குவேன்னு நம்புறேன். ❤️
+
+வாழ்க்கையில நீ நிறைய கஷ்டங்களை சந்திச்சிருக்க. அந்த வலி என் மனசையும் தொட்டது. 🥺 அதுவும் ஒரு காரணம் இருக்காம் நான் உன்னோட இவ்வளவு பக்கமா வந்தேன். இனிமேல் வாழ்க்கை உனக்கு கொடுக்காத மகிழ்ச்சிகளை எல்லாம் நான் கொடுக்கணும்னு விரும்புறேன். 🌷
+
+மத்தெல்லாத்தையும் விட நான் மிஸ் பண்றது உன்னோட presence-ஐ. 🫂 ஒரு நாள் கூட உன்னை நினைக்காம போகல. என்ன செஞ்சாலும், எங்கே இருந்தாலும், நீ என் மனசுல எப்பவும் இருக்க. ❤️
+
+எனக்கும் பயங்களும் insecurity-களும் இருக்கு. என் மிகப் பெரிய பயம் உன்னை இழந்துடுவேன்னு தான். 😔 என்ன நடந்தாலும் என்னை விட்டுட்டு போகாதே. நான் தப்பு பண்ணினாலும் என் பக்கத்துல இரு. 🤍
+
+நிறைய பேர் வாழ்க்கையில வந்து போயிருக்காங்க. அவங்க யாரன்னு தெரிஞ்சுக்கிட்டு போயிருக்காங்க. அந்த feeling என்னால பொறுக்கல. ஆனா நீ எப்பவும் அவங்க மாதிரி இல்ல. நீ எப்பவும் வேற மாதிரி இருந்திருக்க — அதுவும் நான் உன்னை ரொம்ப நேசிக்க ஒரு காரணம். 💖
+
+சில நேரம் நீ உன் உலகத்துல மூழ்கிப்போகும்போது, என்னை மறந்துடுவேன்னு பயமா இருக்கும். இந்த விஷயங்களை முன்னாடியே சொல்லியிருக்கேன், ஆனா மறுபடியும் சொல்லணும்னு தோணுது. வாழ்க்கை ரொம்ப குட்டது — நாளை என்ன ஆகும்னு தெரியல. அதனால என் உணர்வுகளை மனசுல மட்டுமே வச்சிருக்க விரும்பல. 🌙✨
+
+நன்றி, அம்மு. 🫂 என் வாழ்க்கையில நடந்த சிறந்த விஷயம் நீதான். நீ வளர்வதை பாக்கணும், உன் கனவுகள் எல்லாம் நிறைவேற பாக்கணும், நீ ஆக விரும்புற மனிதனா மாறுவதை பாக்கணும். 🌻
+
+தினமும் இந்த உலகத்திடம் வேண்டுறேன். என் பாக்கியங்களையும், மகிழ்ச்சியையும், அமைதியையும் எல்லாம் உனக்கு கொடுக்கணும்னு. 🤍 வாழ்க்கையில இன்னும் வலிகள் இருந்தா, அதை உன் சார்பா நான் சுமக்க ஒப்புக்குவேன்.
+
+நீ உன் பெற்றோர்களுக்கு அற்புதமான மகன், மேகாவுக்கு அன்பான அண்ணன், உன்னை சுத்தி இருக்கிற எல்லாருக்கும் ஒரு நல்ல மனிதன். 💎 நீ உண்மையிலேயே ஒரு அரிய ரத்தினம்.
+
+உன் மனசுல என்ன நினைவு ஓடினாலும், உன் மனசு எவ்வளவு கனிவானது, நேர்மையானதுன்னு எனக்கு தெரியும். உன்னோட அந்த அழகான மனசு — அதை நான் அதிகமா நேசிக்கிறவற்றில் ஒன்று. ❤️
+
+சரியா சாப்பிடு, அழகா உடுத்திக்கோ, உன் உடம்பை கவனிச்சுக்கோ, வாழ்க்கையில பின்னுக்கு போறோம்னு நினைக்காதே. 🌸 எல்லாத்துக்கும் ஒரு நேரம் இருக்கு. முன்னுக்கு போ, முயற்சிக்கிட்டே இரு, வாழ்க்கை உனக்காக கதவை திறக்கும்போது, அதை இறுக்கமா பிடிச்சுக்கோ. ✨
+
+நல்ல விஷயங்கள் உனக்காக காத்திருக்குன்னு தெரியும் — ஏன்னா அழகான மனசுக்கு அழகான விஷயங்களே வரும். 🫂
+
+உன் பயணத்தோட ஒரு பகுதியா இருக்கிறது எனக்கு ரொம்ப பிடிக்கும். தொடர்ந்து உன் பக்கத்துல நடக்கணும்னு விரும்புறேன். என்ன நடந்தாலும், உன் கையை பிடிச்சு நிற்பேன்னு promise. 🤝❤️
+
+என்னை நம்பு.
+
+உன்னை நேசிக்கிறேன், என் கண்மணி. 💋❤️
+
+மனசு முழுக்க நேசிச்ச அந்த பையன் நீதான். உன்னை நினைக்கும் போதெல்லாம் மனசு ஒரு அமைதியா இருக்கும். மிகவும் சோர்வான நாட்களிலும் உன்னை நினைச்சாலே ஒரு புன்னகை வரும். 😊❤️
+
+நீ என்கூட இருக்காய்னு தெரிஞ்சா போதும் — இந்த உலகத்துல வேற எதுவும் எனக்கு அந்த மகிழ்ச்சியை கொடுக்காது.
+
+மகிழ்ச்சியா இரு. ஆரோக்கியமா இரு. என்னோடு இரு. 🫂❤️
+
+*பிறந்தநாள் வாழ்த்துக்கள், அம்மு.* 🎂✨
+
+*எல்லா அன்போடும்,*
+
+*உன் அம்மு* ❤️`;
