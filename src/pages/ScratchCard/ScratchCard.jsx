@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { scratchReveal, letterContent, letterContentTa, scratchCardImage, uiText } from '../../data/birthdayData';
 import Particles from '../../components/Particles/Particles';
 import { useLang } from '../../context/LanguageContext';
@@ -186,13 +187,15 @@ export default function ScratchCard({ onNext }) {
           </div>
         )}
 
-        {/* Letter modal */}
-        {showLetter && (
+        {/* Letter modal — rendered via portal so position:fixed works
+            correctly even though .stage-enter applies transform to ancestor */}
+        {showLetter && createPortal(
           <div className="letter-overlay" onClick={() => setShowLetter(false)}>
             <div className="letter-card-wrapper" onClick={e => e.stopPropagation()}>
               <LetterCard onClose={() => setShowLetter(false)} onNext={onNext} lang={lang} t={t} />
             </div>
-          </div>
+          </div>,
+          document.body
         )}
       </div>
     </div>
@@ -219,7 +222,7 @@ function LetterCard({ onClose, onNext, lang, t }) {
         clearInterval(timer);
         setDone(true);
       }
-    }, 65);
+    }, 35);  // 35 ms per character — slow typewriter feel
     return () => clearInterval(timer);
   }, [content.length]);
 

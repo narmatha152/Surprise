@@ -1,7 +1,6 @@
 .puzzle-stage {
   padding: 1.5rem;
   flex-direction: column;
-  overflow-y: auto;
   justify-content: flex-start;
   align-items: center;
   padding-top: 3rem;

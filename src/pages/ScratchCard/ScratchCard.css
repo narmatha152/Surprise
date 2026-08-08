@@ -1,4 +1,4 @@
-.scratch-stage { padding: 1.5rem; flex-direction: column; overflow-y: auto; justify-content: flex-start; padding-top: 3rem; }
+.scratch-stage { padding: 1.5rem; flex-direction: column; justify-content: flex-start; padding-top: 3rem; }
 
 .scratch-container {
   display: flex;

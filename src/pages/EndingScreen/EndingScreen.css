@@ -24,14 +24,11 @@
   line-height: 1.2;
 }
 
-.ending-heart {
-  font-size: 3rem;
-  animation: pulseHeart 1.2s ease-in-out infinite;
-}
+/* Removed ending-heart */
 
 @keyframes pulseHeart {
   0%, 100% { transform: scale(1); }
-  50%       { transform: scale(1.2); }
+  50%       { transform: scale(1.15); }
 }
 
 .ending-message {
@@ -75,4 +72,39 @@
 .replay-btn:hover {
   background: rgba(255,209,102,0.1);
   box-shadow: 0 0 20px rgba(255,209,102,0.3);
+}
+
+/* ---- Video Section ---- */
+.ending-video-section {
+  width: 100%;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.play-last-video-btn {
+  background: linear-gradient(135deg, #FF1493, #FF008C);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(255, 20, 147, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.play-last-video-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(255, 20, 147, 0.6);
+}
+
+.bday-video {
+  width: 100%;
+  border-radius: 8px;
+  max-height: 50vh;
+  object-fit: contain;
+  background: #000;
 }

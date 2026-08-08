@@ -29,16 +29,12 @@ export default function QuestionLock({ onNext }) {
       setUnlocking(true);
       setTimeout(() => onNext(), 2000);
     } else {
-      const newAttempts = attempts + 1;
-      setAttempts(newAttempts);
+      setAttempts(attempts + 1);
       setShaking(true);
       setTimeout(() => setShaking(false), 600);
 
-      if (newAttempts >= 3) {
-        setStatus('angry');
-      } else {
-        setStatus('wrong');
-      }
+      // Trigger angry state immediately on the first wrong attempt
+      setStatus('angry');
       setAnswer('');
     }
   };

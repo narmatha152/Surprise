@@ -3,19 +3,23 @@ import { birthdayConfig, videoConfig, uiText } from '../../data/birthdayData';
 import Fireflies from '../../components/Fireflies/Fireflies';
 import Confetti from '../../components/Confetti/Confetti';
 import { useLang } from '../../context/LanguageContext';
+import { useMusic } from '../../context/MusicContext';
 import './BirthdayReveal.css';
 
 export default function BirthdayReveal({ onNext }) {
   const { lang } = useLang();
   const t = uiText[lang];
+  const { pauseForVideo, resumeFromVideo } = useMusic();
   
   const BIRTHDAY_TEXT = lang === 'ta' ? 'பிறந்தநாள் வாழ்த்துக்கள் 🎂' : 'HAPPY BIRTHDAY 🎂';
   const BIRTHDAY_CHARS = useMemo(() => [...BIRTHDAY_TEXT], [BIRTHDAY_TEXT]);
   
   const [revealedChars, setRevealedChars] = useState(0);
+  const [showSubText, setShowSubText] = useState(false);
   const [showCake, setShowCake] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
   const [showVideo, setShowVideo] = useState(false);
+  const [showVideoBtn, setShowVideoBtn] = useState(false);
   const [showNextBtn, setShowNextBtn] = useState(false);
   const [stars] = useState(() =>
     Array.from({ length: 60 }, (_, i) => ({
@@ -35,10 +39,12 @@ export default function BirthdayReveal({ onNext }) {
       setRevealedChars(i);
       if (i >= BIRTHDAY_CHARS.length) {
         clearInterval(timer);
-        setTimeout(() => { setShowCake(true); setShowConfetti(true); }, 300);
-        setTimeout(() => setShowNextBtn(true), 1800);
+        setTimeout(() => setShowSubText(true), 500); // 1. Subtext ("Today is your special day")
+        setTimeout(() => { setShowCake(true); setShowConfetti(true); }, 1500); // 2. Cake & Confetti
+        setTimeout(() => setShowVideoBtn(true), 2500); // 3. Video button
+        setTimeout(() => setShowNextBtn(true), 3500); // 4. Next button
       }
-    }, 90);
+    }, 150);   // increased speed (from 260 to 150)
     return () => clearInterval(timer);
   }, [BIRTHDAY_CHARS.length]);
 
@@ -82,22 +88,26 @@ export default function BirthdayReveal({ onNext }) {
           ))}
         </h1>
 
-        <p className="reveal-sub">{t.revealSub}</p>
-        <p className="reveal-name gold-text">
-          {birthdayConfig.name}
-          <svg className="pink-heart" viewBox="0 0 30 29" xmlns="http://www.w3.org/2000/svg" aria-label="heart">
-            <defs>
-              <linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%"   stopColor="#FFB6C1"/>
-                <stop offset="45%"  stopColor="#FF69B4"/>
-                <stop offset="100%" stopColor="#FF1493"/>
-              </linearGradient>
-            </defs>
-            <path d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4
-                     c0,9.4,13.5,18.6,16,20.2c2.5-1.6,16-10.8,16-20.2C32,3.8,28.2,0,23.6,0z"
-                  fill="url(#hg)"/>
-          </svg>
-        </p>
+        {showSubText && (
+          <div className="reveal-subtext-group" style={{ animation: 'fadeInScale 0.8s ease forwards', display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+            <p className="reveal-sub">{t.revealSub}</p>
+            <p className="reveal-name gold-text">
+              {birthdayConfig.name}
+              <svg className="pink-heart" viewBox="0 0 30 29" xmlns="http://www.w3.org/2000/svg" aria-label="heart">
+                <defs>
+                  <linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%"   stopColor="#FFB6C1"/>
+                    <stop offset="45%"  stopColor="#FF69B4"/>
+                    <stop offset="100%" stopColor="#FF1493"/>
+                  </linearGradient>
+                </defs>
+                <path d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4
+                         c0,9.4,13.5,18.6,16,20.2c2.5-1.6,16-10.8,16-20.2C32,3.8,28.2,0,23.6,0z"
+                      fill="url(#hg)"/>
+              </svg>
+            </p>
+          </div>
+        )}
 
         {/* Animated Cake */}
         {showCake && (
@@ -129,12 +139,12 @@ export default function BirthdayReveal({ onNext }) {
         )}
 
         {/* VIDEO SECTION */}
-        {showCake && (
-          <div className="video-section">
+        {showVideoBtn && (
+          <div className="video-section" style={{ animation: 'fadeInScale 0.8s ease forwards' }}>
             {!showVideo ? (
               <button
                 className="play-video-btn btn-glow"
-                onClick={() => setShowVideo(true)}
+                onClick={() => { pauseForVideo(); setShowVideo(true); }}
               >
                 {t.revealPlayBtn}
               </button>
@@ -149,6 +159,8 @@ export default function BirthdayReveal({ onNext }) {
                   autoPlay
                   playsInline
                   preload="metadata"
+                  onEnded={resumeFromVideo}
+                  onPause={resumeFromVideo}
                 />
               </div>
             )}

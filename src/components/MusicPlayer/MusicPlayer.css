@@ -1,0 +1,130 @@
+/* ============================================================
+   MUSIC FAB — Floating music control button
+   Visually consistent with the dark-magenta / gold theme
+   ============================================================ */
+
+.music-fab {
+  position: fixed;
+  bottom: 1.6rem;
+  right: 1.6rem;
+  z-index: 9999;
+
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+
+  /* Glassmorphic background matching the site theme */
+  background: rgba(201, 0, 120, 0.18);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 209, 102, 0.35);
+  box-shadow:
+    0 4px 20px rgba(255, 0, 140, 0.3),
+    0 0 0 0 rgba(255, 0, 140, 0);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+
+  /* Entrance animation */
+  animation: fabSlideIn 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes fabSlideIn {
+  from { transform: scale(0) rotate(-180deg); opacity: 0; }
+  to   { transform: scale(1) rotate(0deg);   opacity: 1; }
+}
+
+.music-fab:hover {
+  transform: scale(1.12);
+  box-shadow:
+    0 6px 28px rgba(255, 0, 140, 0.5),
+    0 0 0 4px rgba(255, 209, 102, 0.15);
+}
+
+.music-fab:active {
+  transform: scale(0.95);
+}
+
+/* Playing state: brighter glow */
+.music-fab.playing {
+  background: rgba(201, 0, 120, 0.35);
+  box-shadow:
+    0 4px 24px rgba(255, 0, 140, 0.55),
+    0 0 14px rgba(255, 209, 102, 0.25);
+  animation: fabSlideIn 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both,
+             fabGlow 2.5s ease-in-out infinite;
+}
+
+@keyframes fabGlow {
+  0%, 100% { box-shadow: 0 4px 24px rgba(255, 0, 140, 0.55), 0 0 14px rgba(255, 209, 102, 0.25); }
+  50%       { box-shadow: 0 4px 36px rgba(255, 0, 140, 0.75), 0 0 24px rgba(255, 209, 102, 0.45); }
+}
+
+/* Paused state: dimmer */
+.music-fab.paused {
+  background: rgba(38, 0, 25, 0.7);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Music emoji icon */
+.music-icon {
+  font-size: 1.45rem;
+  line-height: 1;
+  display: block;
+  position: relative;
+  z-index: 1;
+  /* Subtle spin when playing */
+}
+
+.music-fab.playing .music-icon {
+  animation: iconSpin 4s linear infinite;
+}
+
+@keyframes iconSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ---- Pulsing rings when playing ---- */
+.music-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 0, 140, 0.5);
+  animation: ringPulse 2s ease-out infinite;
+  pointer-events: none;
+}
+
+.music-ring.ring-2 {
+  border-color: rgba(255, 209, 102, 0.35);
+  animation-delay: 1s;
+}
+
+@keyframes ringPulse {
+  0%   { transform: scale(1);   opacity: 0.8; }
+  80%  { transform: scale(1.9); opacity: 0;   }
+  100% { transform: scale(1.9); opacity: 0;   }
+}
+
+/* ---- Mobile adjustments ---- */
+@media (max-width: 480px) {
+  .music-fab {
+    bottom: 1.1rem;
+    right: 1.1rem;
+    width: 46px;
+    height: 46px;
+  }
+  .music-icon {
+    font-size: 1.25rem;
+  }
+}

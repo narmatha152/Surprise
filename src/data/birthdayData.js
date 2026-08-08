@@ -20,20 +20,23 @@ import storyBby           from '../assets/story/bby_img.png';
 import storyBluetooth     from '../assets/story/bluthooth_img.png';
 import storyBluetooth2    from '../assets/story/blutooth_img2.png';
 import storyCheeksKiss    from '../assets/story/cheeks_kiss_img.webp';
-import storyChestSleep    from '../assets/story/chestsleep_img.webp';
+import storyChestSleep    from '../assets/story/chestsleep_img.png';
 import storyCollege       from '../assets/story/college_img.webp';
 import storyEighth        from '../assets/story/eigth_img.webp';
 import storyFifth         from '../assets/story/fifth_img.png';
 import storyForeheadKiss  from '../assets/story/forehead_kiss_img.png';
-import storyLeft          from '../assets/story/left_img.webp';
-import storyMirrorHug     from '../assets/story/mirror_hug_img.webp';
-import storyMirrorPurple  from '../assets/story/mirror_img_purple.webp';
+import storyLeft          from '../assets/story/left_img.png';
+import storyMirrorHug     from '../assets/story/mirror_hug_img.png';
+import storyMirrorPurple  from '../assets/story/mirror_img_purple.png';
 import storyPeaceful      from '../assets/story/peacefull_img.webp';
-import storySareePull     from '../assets/story/sareepull_img.webp';
+import storySareePull     from '../assets/story/sareepull_img.png';
 import storySleepLap      from '../assets/story/sleep_lap_img.png';
 import storySleepChest    from '../assets/story/sleep_onchest_img.webp';
 import storySleepShoulder from '../assets/story/sleep_onshoulder_img.webp';
 import puzzleImg          from '../assets/story/puzzle_img.jpeg';
+import lastVideo          from '../assets/story/last_vdo.mp4';
+
+export { lastVideo };
 
 // ============================================================
 
@@ -78,7 +81,7 @@ export const uiText = {
     qLockTag: "🔐 A little secret is locked away",
     qLockWrong1: "Hmm... that's not quite right ✨",
     qLockWrong2: (left) => `Try again (${left} tries left)`,
-    qLockCorrect: "✨ Yes! That's right! Opening... 💖",
+    qLockCorrect: "woww its me .. thank you 💖😊",
     qLockAngryText1: "That's not right! 😤",
     qLockAngryText2: "Think harder... you know who! 💭",
     qLockAngrySub: "( Hint: She's rowdy 💖 )",
@@ -98,7 +101,7 @@ export const uiText = {
     ],
 
     // BirthdayReveal
-    revealSub: "Today is your special day ✨",
+    revealSub: "Today is your special day Ammu ✨",
     revealPlayBtn: "▶ Play Your Special Video 🎬",
     revealVideoLabel: "🎬 A moment just for you",
     revealNextBtn: "See Your Memories 📸",
@@ -132,7 +135,7 @@ export const uiText = {
     scrEndBtn: "The Journey Ends Here 🌟",
 
     // EndingScreen
-    endTitle: (name) => `Happy Birthday ${name}! 🎂`,
+    endTitle: (name) => `Happy Birthday ${name}!`,
     endMessage1: "This journey was made with love, just for you.",
     endMessage2: "May every single day of your life feel this magical. ✨",
     endSign: "With all the love in the world 🌍",
@@ -162,7 +165,7 @@ export const uiText = {
     qLockTag: "🔐 ஒரு குட்டி ரகசியம் பூட்டப்பட்டிருக்கு",
     qLockWrong1: "ஹ்ம்ம்... அது சரியில்ல ✨",
     qLockWrong2: (left) => `மறுபடியும் ட்ரை பண்ணு (${left} வாய்ப்புகள் இருக்கு)`,
-    qLockCorrect: "✨ சூப்பர்! கரெக்ட்! திறக்குது... 💖",
+    qLockCorrect: "woww its me .. thank you 💖😊",
     qLockAngryText1: "அது தப்பு! 😤",
     qLockAngryText2: "நல்லா யோசி... உனக்கு தெரியும்! 💭",
     qLockAngrySub: "( Hint: அவ ரொம்ப அழகானவ 💖 )",
@@ -216,7 +219,7 @@ export const uiText = {
     scrEndBtn: "நம்ம பயணம் இங்கே முடியுது 🌟",
 
     // EndingScreen
-    endTitle: (name) => `பிறந்தநாள் வாழ்த்துக்கள் ${name}! 🎂`,
+    endTitle: (name) => `பிறந்தநாள் வாழ்த்துக்கள் ${name}!`,
     endMessage1: "இந்த பயணம் உனக்காக மட்டுமே அன்போடு உருவாக்கப்பட்டது.",
     endMessage2: "உன் வாழ்க்கையின் ஒவ்வொரு நாளும் இதே போல மேஜிக்கலாக அமையட்டும். ✨",
     endSign: "உலகின் அனைத்து அன்போடும் 🌍",
@@ -449,9 +452,9 @@ export const balloonStory = [
   {
     id: 18, age: "Now", color: "#FF008C", emoji: "👑", image: storySleepShoulder,
     title:    "Today — My Whole Heart Is Yours 👑💖",
-    message:  "Today, when I look at you, I don't see only the man standing in front of me. I see the little boy you once were, the young man you became, and the wonderful person you are today.I know I cannot go back and change the past.But if I could, I would choose to stand beside you in every single moment of your life.Your past would have been mine.Your present is mine.And if destiny is kind to us, your future will be mine as well. ❤️Because, in my heart, I have always been there.And I always will be. 🫂💖🥹❤️",
+    message:  "Today, when I look at you, I don't see only the man standing in front of me. I see the little boy you once were, the young man you became, and the wonderful person you are today.I know I cannot go back and change the past.But if I could, I would choose to stand beside you in every single moment of your life.Your past would have been mine.Your present is mine.And if destiny is kind to us, your future will be mine as well. ❤️Because, in my heart, I have always been there.And I always will be. 🫂💖🥹I may have arrived late, but I promise I am here to stay. Forever. ❤️",
     titleTa:  "இன்று — என் மனசு முழுக்க உன்னோடதுதான் 👑💖",
-    messageTa:"இன்று உன்னைப் பார்க்கும்போது, என் கண்களுக்கு முன்னால் ஒரு மனிதன் மட்டும் தெரியவில்லை.ஒரு சின்னப் பையன் தெரிகிறான்.கனவுகள் நிறைந்த ஒரு இளைஞன் தெரிகிறான்.அழகான மனம் கொண்ட ஒரு மனிதன் தெரிகிறான்.என்னுடைய உலகம் தெரிகிறது. ❤️உன்னுடைய கடந்த காலத்தில் நான் இல்லாமல் இருந்திருக்கலாம்.ஆனால் என் மனதில், நான் எப்போதுமே உன்னுடன் இருந்திருக்கிறேன்.உன் சிரிப்பில்...உன் கண்ணீரில்...உன் மகிழ்ச்சியில்...உன் வலியில்...எல்லாவற்றிலும்...இன்று உன்னுடைய நிகழ்காலமாக நான் இருக்கிறேன்.நாளை உன்னுடைய எதிர்காலமாக இருக்க விரும்புகிறேன்.ஏனென்றால் உன்னுடைய கடந்த காலமும், நிகழ்காலமும், எதிர்காலமும் எனக்கு மிகவும் முக்கியமானவை.என்றென்றும் நான் உன்னுடன் இருப்பேன். ❤️🫂. I may have arrived late, but I promise I am here to stay. Forever. ❤️'",
+    messageTa:"இன்று உன்னைப் பார்க்கும்போது, என் கண்களுக்கு முன்னால் ஒரு மனிதன் மட்டும் தெரியவில்லை.ஒரு சின்னப் பையன் தெரிகிறான்.கனவுகள் நிறைந்த ஒரு இளைஞன் தெரிகிறான்.அழகான மனம் கொண்ட ஒரு மனிதன் தெரிகிறான்.என்னுடைய உலகம் தெரிகிறது. ❤️உன்னுடைய கடந்த காலத்தில் நான் இல்லாமல் இருந்திருக்கலாம்.ஆனால் என் மனதில், நான் எப்போதுமே உன்னுடன் இருந்திருக்கிறேன்.உன் சிரிப்பில்...உன் கண்ணீரில்...உன் மகிழ்ச்சியில்...உன் வலியில்...எல்லாவற்றிலும்...இன்று உன்னுடைய நிகழ்காலமாக நான் இருக்கிறேன்.நாளை உன்னுடைய எதிர்காலமாக இருக்க விரும்புகிறேன்.ஏனென்றால் உன்னுடைய கடந்த காலமும், நிகழ்காலமும், எதிர்காலமும் எனக்கு மிகவும் முக்கியமானவை.என்றென்றும் நான் உன்னுடன் இருப்பேன். ❤️🫂. I may have arrived late, but I promise I am here to stay. Forever. ❤️",
   },
 ];
 

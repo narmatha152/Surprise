@@ -2,17 +2,21 @@ import { useState } from 'react';
 import Particles from '../../components/Particles/Particles';
 import { useLang } from '../../context/LanguageContext';
 import { uiText } from '../../data/birthdayData';
+import { useMusic } from '../../context/MusicContext';
 import './GiftBox.css';
 
 export default function GiftBox({ onNext }) {
   const { lang } = useLang();
   const t = uiText[lang];
+  const { startMusic } = useMusic();
   const [opened, setOpened] = useState(false);
   const [hearts, setHearts] = useState([]);
   const [glitter, setGlitter] = useState([]);
   const [transitioning, setTransitioning] = useState(false);
 
   const handleOpen = () => {
+    // First user gesture → unlock and start background music
+    startMusic();
     if (opened || transitioning) return;
     setOpened(true);
 
