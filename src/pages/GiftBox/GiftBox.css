@@ -209,51 +209,108 @@
 /* ─── Bow — absolute to wrapper, always on top ── */
 .gift-lid-bow {
   position: absolute;
-  top: -30px;
+  top: -45px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   z-index: 5;
-  width: 76px;
-  height: 36px;
-  /* needed so bow-knot's position:absolute is relative to this */
-  /* NOTE: we use position:absolute on self, knot uses absolute too */
+  width: 140px;
+  height: 60px;
 }
 
 .bow-left, .bow-right {
-  width: 32px; height: 26px;
-  background: linear-gradient(145deg, #FFE566, #FFD166, #D4A017);
-  border-radius: 50%;
+  width: 50px;
+  height: 52px;
+  background: linear-gradient(135deg, #FFE566, #FFD166, #D4A017);
   box-shadow:
-    0 3px 10px rgba(255,209,102,0.7),
-    inset 0 2px 5px rgba(255,255,255,0.4);
+    0 5px 15px rgba(255,209,102,0.4),
+    inset 4px 4px 10px rgba(255,255,255,0.7),
+    inset -4px -4px 10px rgba(184, 134, 11, 0.4);
+  position: relative;
+  z-index: 2;
 }
 
-.bow-left  { transform: rotate(-40deg) translateX(5px) skewX(-5deg); }
-.bow-right { transform: rotate(40deg) translateX(-5px) skewX(5deg); }
+/* Inner shadow to give the loops a 3D folded look */
+.bow-left::after, .bow-right::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 22px; 
+  height: 38px;
+  background: rgba(184, 134, 11, 0.35);
+}
+
+.bow-left {
+  border-radius: 50% 50% 0 50%;
+  transform: rotate(-25deg);
+  transform-origin: bottom right;
+  margin-right: -10px;
+  margin-bottom: 4px;
+}
+.bow-left::after {
+  right: 0;
+  border-radius: 50% 0 0 50%;
+  box-shadow: inset 3px 3px 6px rgba(0,0,0,0.15);
+}
+
+.bow-right {
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(25deg);
+  transform-origin: bottom left;
+  margin-left: -10px;
+  margin-bottom: 4px;
+}
+.bow-right::after {
+  left: 0;
+  border-radius: 0 50% 50% 0;
+  box-shadow: inset -3px 3px 6px rgba(0,0,0,0.15);
+}
 
 .bow-knot {
-  width: 18px; height: 18px;
-  background: radial-gradient(circle at 38% 38%, #FFE566, #FFD166 50%, #D4A017 100%);
+  width: 28px; height: 28px;
+  background: linear-gradient(135deg, #FFE566, #FFD166, #D4A017);
   border-radius: 50%;
-  /* Use negative margins so it overlaps between the two petals */
-  margin-left: -22px;
-  margin-right: -22px;
   flex-shrink: 0;
-  box-shadow: 0 0 14px rgba(255,209,102,0.9);
-  z-index: 2;
-  overflow: hidden;
+  box-shadow: 
+    0 4px 15px rgba(255,209,102,0.8),
+    inset 0 4px 8px rgba(255,255,255,0.8),
+    inset 0 -3px 6px rgba(184, 134, 11, 0.7);
+  z-index: 4;
   position: relative;
 }
 
 .bow-knot-shine {
   position: absolute;
-  top: 2px; left: 3px;
-  width: 7px; height: 7px;
-  background: rgba(255,255,255,0.55);
+  top: 5px; left: 6px;
+  width: 8px; height: 10px;
+  background: rgba(255,255,255,0.7);
   border-radius: 50%;
+  transform: rotate(-25deg);
+}
+
+/* ─── Bow Tails ─── */
+.bow-tail-left, .bow-tail-right {
+  position: absolute;
+  top: 48px;
+  width: 22px;
+  height: 65px;
+  background: linear-gradient(180deg, #D4A017 0%, #FFD166 40%, #E8C050 100%);
+  z-index: 1;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 85%, 0 100%);
+}
+
+.bow-tail-left {
+  left: 36%;
+  transform: rotate(18deg);
+  transform-origin: top center;
+}
+
+.bow-tail-right {
+  right: 36%;
+  transform: rotate(-18deg);
+  transform-origin: top center;
 }
 
 /* ─── Box Body ─────────────────────────── */

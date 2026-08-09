@@ -1,4 +1,9 @@
-.loading-stage { flex-direction: column; }
+.loading-stage {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
 
 .loading-content {
   display: flex;

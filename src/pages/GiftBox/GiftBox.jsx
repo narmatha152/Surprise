@@ -107,18 +107,20 @@ export default function GiftBox({ onNext }) {
           {/* Glow ring behind box */}
           <div className="gift-glow-ring" />
 
-          {/* Lid — no bow inside */}
+          {/* Lid */}
           <div className="gift-lid">
             <div className="gift-lid-shine" />
             <div className="gift-lid-ribbon" />
-          </div>
-
-          {/* Bow — direct child of wrapper so it's never clipped */}
-          <div className="gift-lid-bow">
-            <div className="bow-left" />
-            <div className="bow-right" />
-            <div className="bow-knot">
-              <div className="bow-knot-shine" />
+            
+            {/* Bow — child of lid so it animates together */}
+            <div className="gift-lid-bow">
+              <div className="bow-tail-left" />
+              <div className="bow-tail-right" />
+              <div className="bow-left" />
+              <div className="bow-knot">
+                <div className="bow-knot-shine" />
+              </div>
+              <div className="bow-right" />
             </div>
           </div>
 
