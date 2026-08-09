@@ -34,7 +34,7 @@ import storySleepLap      from '../assets/story/sleep_lap_img.png';
 import storySleepChest    from '../assets/story/sleep_onchest_img.webp';
 import storySleepShoulder from '../assets/story/sleep_onshoulder_img.webp';
 import puzzleImg          from '../assets/story/puzzle_img.jpeg';
-import lastVideo          from '../assets/story/final_vedio.mp4';
+import lastVideo          from '../assets/story/Final_vedio.mp4';
 
 export { lastVideo };
 
