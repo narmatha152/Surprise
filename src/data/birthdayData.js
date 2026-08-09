@@ -34,7 +34,7 @@ import storySleepLap      from '../assets/story/sleep_lap_img.png';
 import storySleepChest    from '../assets/story/sleep_onchest_img.webp';
 import storySleepShoulder from '../assets/story/sleep_onshoulder_img.webp';
 import puzzleImg          from '../assets/story/puzzle_img.jpeg';
-import lastVideo          from '../assets/story/last_vdo.mp4';
+import lastVideo          from '../assets/story/final_vedio.mp4';
 
 export { lastVideo };
 
@@ -44,7 +44,7 @@ export const birthdayConfig = {
   name: "Jeeva",
   loadingDuration: 5000,
   correctAnswers: ["narmatha", "narmadha"],
-  secretQuestion: "Who is your favourite girl in this world? 💖",
+  secretQuestion: "Who is your favorite girl in the world? ❤️",
   answerHint: "Type her name...",
 };
 
@@ -81,7 +81,7 @@ export const uiText = {
     qLockTag: "🔐 A little secret is locked away",
     qLockWrong1: "Hmm... that's not quite right ✨",
     qLockWrong2: (left) => `Try again (${left} tries left)`,
-    qLockCorrect: "woww its me .. thank you 💖😊",
+    qLockCorrect: "Yes, that's right! 💖 Opening your surprise...",
     qLockAngryText1: "That's not right! 😤",
     qLockAngryText2: "Think harder... you know who! 💭",
     qLockAngrySub: "( Hint: She's rowdy 💖 )",
@@ -100,11 +100,40 @@ export const uiText = {
       'Almost there... 💖',
     ],
 
+    // ThankYou
+    tyCrown: "👑",
+    tyMain: "Thank you for choosing me, ",
+    tySweep: "my sweetheart.",
+    tySubtitle: "Please continue with the website and enjoy your day. 💗",
+    tyMore: "There's still more waiting for you... ✨",
+    tyBtn: "Continue →",
+
     // BirthdayReveal
+    revealTitleChars: ['✨',' ','H','A','P','P','Y',' ','B','I','R','T','H','D','A','Y',' ','✨'],
     revealSub: "Today is your special day Ammu ✨",
-    revealPlayBtn: "▶ Play Your Special Video 🎬",
-    revealVideoLabel: "🎬 A moment just for you",
-    revealNextBtn: "See Your Memories 📸",
+    revealVideoLabel: "▶ Play the video",
+    revealPlayBtn: "▶ Play Your Special Video 🎥",
+    revealQuote: "May this new chapter of your life be filled with everything your heart quietly wishes for. ✨",
+    revealNextBtn: "Continue →",
+
+    // MakeAWish
+    mawEyebrow: "✨ A Little Wish Before We Continue",
+    mawHeading: "Make A Wish",
+    mawSub1: "A new year of your life just unlocked...",
+    mawSub2: "So tell the universe — what does your heart want this time?",
+    mawPlaceholder: "What are you secretly wishing for?",
+    mawBtn: "Send It To The Universe 🌌✨",
+    mawPreviewHeading: "Your Wish ✨",
+    mawPreviewSub: "This is what you asked the universe for...",
+    mawPreviewSent: "Your wish has already been sent to the universe. 🌟",
+    mawPreviewBtn: "Continue →",
+    mawUniSentTitle: "Your wish has been sent to the universe.",
+    mawUniSoonText: "And what you wished for will come true very soon... ✨",
+    mawUniAffirm1: "Now believe in it.",
+    mawUniAffirm2: "Work towards it.",
+    mawUniAffirm3: "And let the universe take care of the magic.",
+    mawUniClosing: "One year from now, I hope you look back at this moment and smile because you're living the life you once wished for. ❤️",
+    mawUniBtn: "Continue →",
 
     // MemoryCarousel
     memEyebrow: "📸 Memory Lane",
@@ -132,7 +161,7 @@ export const uiText = {
     scrLetterBtn: "A Letter For You 💌",
     scrLetterHeading: "A Letter For You",
     scrSkipBtn: "Skip to end ⏩",
-    scrEndBtn: "The Journey Ends Here 🌟",
+    scrEndBtn: "The Journey Starts Here 🌟",
 
     // EndingScreen
     endTitle: (name) => `Happy Birthday ${name}!`,
@@ -165,7 +194,7 @@ export const uiText = {
     qLockTag: "🔐 ஒரு குட்டி ரகசியம் பூட்டப்பட்டிருக்கு",
     qLockWrong1: "ஹ்ம்ம்... அது சரியில்ல ✨",
     qLockWrong2: (left) => `மறுபடியும் ட்ரை பண்ணு (${left} வாய்ப்புகள் இருக்கு)`,
-    qLockCorrect: "woww its me .. thank you 💖😊",
+    qLockCorrect: "ஆமா, அது சரிதான்! 💖 உன் surprise திறக்குது...",
     qLockAngryText1: "அது தப்பு! 😤",
     qLockAngryText2: "நல்லா யோசி... உனக்கு தெரியும்! 💭",
     qLockAngrySub: "( Hint: அவ ரொம்ப அழகானவ 💖 )",
@@ -184,11 +213,40 @@ export const uiText = {
       'நெருங்கிட்டோம்... 💖',
     ],
 
+    // ThankYou
+    tyCrown: "👑",
+    tyMain: "என்னை தேடி வந்ததற்கு ரொம்ப நன்றி, ",
+    tySweep: "என் செல்லக்குட்டி.",
+    tySubtitle: "இணையதளத்தை தொடர்ந்து பார்த்து உன்னோட நாளை கொண்டாடு. 💗",
+    tyMore: "உனக்காக இன்னும் நிறைய காத்துக்கிட்டு இருக்கு... ✨",
+    tyBtn: "தொடரலாம் →",
+
     // BirthdayReveal
+    revealTitleChars: ['பி','ற','ந்','த','நா','ள்',' ','வா','ழ்','த்','து','க்','க','ள்',' ','🎂'],
     revealSub: "இன்று உன்னோட ஸ்பெஷல் நாள் ✨",
-    revealPlayBtn: "▶ உன்னோட ஸ்பெஷல் வீடியோவ ப்ளே பண்ணு 🎬",
-    revealVideoLabel: "🎬 உனக்காக ஒரு தருணம்",
-    revealNextBtn: "நம்ம நினைவுகளை பாரு 📸",
+    revealVideoLabel: "▶ வீடியோ பிளே பண்ணு",
+    revealPlayBtn: "▶ உன்னோட ஸ்பெஷல் வீடியோவ ப்ளே பண்ணு 🎥",
+    revealQuote: "உன் மனசு அமைதியா ஆசைப்படுற எல்லாம் இந்த புது வருஷத்துல உனக்கு கிடைக்கணும். ✨",
+    revealNextBtn: "தொடரலாம் →",
+
+    // MakeAWish
+    mawEyebrow: "✨ தொடரும் முன் ஒரு குட்டி ஆசை",
+    mawHeading: "ஒரு ஆசை கேளு",
+    mawSub1: "உன் வாழ்க்கையோட புது வருஷம் இப்போ ஆரம்பிச்சிருக்கு...",
+    mawSub2: "உன் மனசுக்கு என்ன வேணும்னு பிரபஞ்சத்துகிட்ட சொல்லு?",
+    mawPlaceholder: "உன் ரகசிய ஆசை என்ன?",
+    mawBtn: "பிரபஞ்சத்திடம் அனுப்பு 🌌✨",
+    mawPreviewHeading: "உன் ஆசை ✨",
+    mawPreviewSub: "நீ பிரபஞ்சத்திடம் கேட்டது இதுதான்...",
+    mawPreviewSent: "உன் ஆசை ஏற்கனவே பிரபஞ்சத்திடம் அனுப்பப்பட்டுவிட்டது. 🌟",
+    mawPreviewBtn: "தொடரலாம் →",
+    mawUniSentTitle: "உன் ஆசை பிரபஞ்சத்திடம் சேர்க்கப்பட்டது.",
+    mawUniSoonText: "நீ ஆசைப்பட்டது சீக்கிரமே உனக்கு கிடைக்கும்... ✨",
+    mawUniAffirm1: "இனி அதை நம்பு.",
+    mawUniAffirm2: "அதற்காக உழை.",
+    mawUniAffirm3: "அந்த மேஜிக்கை பிரபஞ்சம் பார்த்துக்கும்.",
+    mawUniClosing: "ஒரு வருஷம் கழிச்சு இந்த நிமிஷத்தை நினைச்சு நீ சந்தோஷப்படணும், ஏன்னா நீ ஆசைப்பட்ட வாழ்க்கையை அப்போ வாழ்ந்துட்டு இருப்ப. ❤️",
+    mawUniBtn: "தொடரலாம் →",
 
     // MemoryCarousel
     memEyebrow: "📸 நினைவுகளின் பயணம்",
@@ -216,7 +274,7 @@ export const uiText = {
     scrLetterBtn: "உனக்காக ஒரு கடிதம் 💌",
     scrLetterHeading: "உனக்காக ஒரு கடிதம்",
     scrSkipBtn: "முடிவுக்கு போ ⏩",
-    scrEndBtn: "நம்ம பயணம் இங்கே முடியுது 🌟",
+    scrEndBtn: "நம்ம பயணம் இங்கே தொடங்குது 🌟",
 
     // EndingScreen
     endTitle: (name) => `பிறந்தநாள் வாழ்த்துக்கள் ${name}!`,

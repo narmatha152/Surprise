@@ -1,0 +1,347 @@
+/* ============================================================
+   MAKE A WISH — all phases
+   ============================================================ */
+
+/* ── Shared star field ─────────────────────────────── */
+.maw-star {
+  position: fixed;
+  border-radius: 50%;
+  background: radial-gradient(circle, #FFE566, #FFD166 60%, transparent);
+  box-shadow: 0 0 4px #FFD166;
+  pointer-events: none;
+  animation: mawTwinkle ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+@keyframes mawTwinkle {
+  0%   { opacity: 0.1; transform: scale(0.7); }
+  100% { opacity: 0.9; transform: scale(1.4); }
+}
+
+/* ── WRITE PHASE ─────────────────────────────────────── */
+.maw-stage {
+  background: radial-gradient(ellipse at 20% 10%, #1a0030 0%, #050006 60%, #260019 100%);
+  flex-direction: column;
+  padding: 2rem 1rem;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.maw-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.4rem;
+  z-index: 2;
+  text-align: center;
+  max-width: 640px;
+  width: 100%;
+  padding-bottom: 2rem;
+}
+
+.maw-eyebrow {
+  font-family: var(--font-script);
+  font-size: clamp(1.2rem, 4vw, 1.6rem);
+  background: linear-gradient(135deg, #FFD166, #FF008C);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 12px rgba(255, 209, 102, 0.3));
+  animation: fadeInScale 0.8s ease forwards;
+}
+
+.maw-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  font-weight: 700;
+  letter-spacing: 2px;
+  animation: fadeInScale 0.9s ease 0.1s both;
+}
+
+.maw-sub1 {
+  font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.7;
+  font-style: italic;
+  animation: fadeInScale 0.9s ease 0.2s both;
+}
+
+.maw-sub2 {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 3vw, 1.3rem);
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.6;
+  animation: fadeInScale 0.9s ease 0.3s both;
+}
+
+/* Textarea card */
+.maw-card {
+  width: 100%;
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  border: 1px solid rgba(255, 209, 102, 0.3);
+  animation: fadeInScale 0.9s ease 0.4s both;
+  position: relative;
+}
+
+.maw-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(ellipse at top, rgba(201, 0, 120, 0.06), transparent 70%);
+  pointer-events: none;
+}
+
+.maw-textarea {
+  width: 100%;
+  min-height: 150px;
+  resize: vertical;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1.5px solid rgba(255, 209, 102, 0.35);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.2rem;
+  font-size: 1rem;
+  font-family: var(--font-body);
+  color: #fff;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  line-height: 1.7;
+}
+
+.maw-textarea::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.maw-textarea:focus {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px rgba(255, 209, 102, 0.12),
+              0 0 24px rgba(201, 0, 120, 0.2);
+}
+
+
+
+.maw-send-btn {
+  padding: 1rem 2.8rem;
+  font-size: 1rem;
+  animation: fadeInScale 0.9s ease 0.5s both;
+  min-width: 280px;
+}
+
+.maw-send-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ── SENDING ANIMATION PHASE ─────────────────────────── */
+.maw-anim-stage {
+  background: radial-gradient(ellipse at center, #0d0020 0%, #020005 100%);
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.maw-anim-content {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── PREVIEW MODE ────────────────────────────────────── */
+.maw-preview-card {
+  width: 100%;
+  padding: 1.5rem;
+  margin-top: 0.5rem;
+  border: 1px solid var(--glass-border-gold);
+}
+
+.maw-preview-wish {
+  font-family: var(--font-script);
+  font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+}
+
+.maw-preview-sent {
+  font-size: 0.95rem;
+  color: var(--color-gold);
+  margin-top: 1rem;
+  font-style: italic;
+  animation: fadeInScale 0.9s ease 0.3s both;
+}
+
+/* ── SENDING ANIMATION PHASE ─────────────────────────── */
+.wish-fade-card {
+  max-width: 560px;
+  padding: 2rem 2.5rem;
+  border: 1px solid var(--glass-border-gold);
+  text-align: center;
+  transition: opacity 1s, filter 1s, transform 1s;
+}
+
+.wish-fade-out {
+  opacity: 0;
+  filter: blur(8px);
+  transform: scale(0.9);
+}
+
+.wish-display {
+  font-family: var(--font-script);
+  font-size: clamp(1.1rem, 3.5vw, 1.6rem);
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+}
+
+.shoot-star {
+  position: absolute;
+  font-size: 2.5rem;
+  top: 110%;
+  left: -10%;
+  transform: rotate(-45deg);
+  opacity: 0;
+  filter: drop-shadow(0 0 15px #FFD166) drop-shadow(0 0 30px #FF008C);
+  z-index: 5;
+}
+
+.shoot-star-active {
+  animation: shootAcross 3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes shootAcross {
+  0% { left: -10%; top: 110%; opacity: 0; transform: rotate(-45deg) scale(0.5); }
+  20% { opacity: 1; transform: rotate(-45deg) scale(1); }
+  80% { opacity: 1; transform: rotate(-45deg) scale(1); }
+  100% { left: 110%; top: -10%; opacity: 0; transform: rotate(-45deg) scale(0.5); }
+}
+
+.shoot-star-tail {
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 150px;
+  height: 3px;
+  background: linear-gradient(to right, transparent, rgba(255, 209, 102, 0.8), #fff);
+  border-radius: 50%;
+}
+
+
+
+/* Universe particles */
+.uni-particle {
+  position: fixed;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #FFD166, #FF008C);
+  pointer-events: none;
+  animation: uniFloat ease-in-out infinite;
+}
+
+@keyframes uniFloat {
+  0%, 100% { opacity: 0.2; transform: translate(0, 0) scale(1); }
+  50%       { opacity: 0.8; transform: translate(8px, -12px) scale(1.5); }
+}
+
+/* ── UNIVERSE PHASE ──────────────────────────────────── */
+.maw-universe-stage {
+  background: radial-gradient(ellipse at center, #0d0020 0%, #020005 60%, #1a0030 100%);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 3rem 1rem;
+}
+
+.maw-universe-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6rem;
+  z-index: 2;
+  max-width: 620px;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 3rem;
+  animation: fadeInScale 0.9s ease forwards;
+}
+
+.uni-sent-icon {
+  font-size: 3.5rem;
+  animation: float 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 20px rgba(255, 209, 102, 0.6));
+}
+
+.uni-sent-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 4.5vw, 2rem);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.uni-soon-text {
+  font-size: clamp(0.95rem, 3vw, 1.15rem);
+  color: var(--color-gold);
+  font-style: italic;
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.uni-wish-display {
+  width: 100%;
+  padding: 1.4rem 1.8rem;
+  border: 1px solid var(--glass-border-gold);
+}
+
+.uni-wish-text {
+  font-family: var(--font-script);
+  font-size: clamp(1rem, 3vw, 1.4rem);
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.7;
+}
+
+.uni-affirmations {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  color: var(--color-gold);
+  font-style: italic;
+  line-height: 1.8;
+}
+
+.uni-closing {
+  font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.8;
+  max-width: 520px;
+}
+
+
+
+.uni-continue-btn {
+  padding: 1rem 2.8rem;
+  font-size: 1rem;
+  animation: fadeInScale 0.8s ease 0.3s both;
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+@media (max-width: 480px) {
+  .maw-card { padding: 1.2rem; }
+  .maw-textarea { min-height: 130px; }
+  .maw-send-btn { min-width: auto; width: 100%; }
+  .uni-affirmations { font-size: 1rem; }
+}

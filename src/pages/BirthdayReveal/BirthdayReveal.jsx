@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import { birthdayConfig, videoConfig, uiText } from '../../data/birthdayData';
 import Fireflies from '../../components/Fireflies/Fireflies';
 import Confetti from '../../components/Confetti/Confetti';
@@ -6,68 +6,167 @@ import { useLang } from '../../context/LanguageContext';
 import { useMusic } from '../../context/MusicContext';
 import './BirthdayReveal.css';
 
+// ── Live clock hook ─────────────────────────────────────────────
+function useLiveClock() {
+  const [now, setNow] = useState(new Date());
+  useEffect(() => {
+    const id = setInterval(() => setNow(new Date()), 1000);
+    return () => clearInterval(id);
+  }, []);
+  return now;
+}
+
+function formatDate(d) {
+  const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  const months = ['January','February','March','April','May','June',
+                  'July','August','September','October','November','December'];
+  return `${days[d.getDay()]} • ${String(d.getDate()).padStart(2,'0')} ${months[d.getMonth()]} ${d.getFullYear()}`;
+}
+
+function formatTime(d) {
+  let h = d.getHours();
+  const m = String(d.getMinutes()).padStart(2,'0');
+  const ampm = h >= 12 ? 'PM' : 'AM';
+  h = h % 12 || 12;
+  return `${String(h).padStart(2,'0')}:${m} ${ampm}`;
+}
+
+// ── Stars generated once ────────────────────────────────────────
+const STARS = Array.from({ length: 70 }, (_, i) => ({
+  id: i,
+  x: Math.random() * 100,
+  y: Math.random() * 100,
+  size: Math.random() * 2.5 + 0.5,
+  dur: Math.random() * 3 + 2,
+  delay: Math.random() * 4,
+}));
+
+// Golden light orbs
+const ORBS = Array.from({ length: 18 }, (_, i) => ({
+  id: i,
+  x: Math.random() * 100,
+  y: Math.random() * 100,
+  size: 4 + Math.random() * 8,
+  dur: 3 + Math.random() * 4,
+  delay: Math.random() * 5,
+}));
+
 export default function BirthdayReveal({ onNext }) {
   const { lang } = useLang();
   const t = uiText[lang];
   const { pauseForVideo, resumeFromVideo } = useMusic();
-  
-  const BIRTHDAY_TEXT = lang === 'ta' ? 'பிறந்தநாள் வாழ்த்துக்கள் 🎂' : 'HAPPY BIRTHDAY 🎂';
-  const BIRTHDAY_CHARS = useMemo(() => [...BIRTHDAY_TEXT], [BIRTHDAY_TEXT]);
-  
-  const [revealedChars, setRevealedChars] = useState(0);
-  const [showSubText, setShowSubText] = useState(false);
-  const [showCake, setShowCake] = useState(false);
-  const [showConfetti, setShowConfetti] = useState(false);
-  const [showVideo, setShowVideo] = useState(false);
-  const [showVideoBtn, setShowVideoBtn] = useState(false);
-  const [showNextBtn, setShowNextBtn] = useState(false);
-  const [stars] = useState(() =>
-    Array.from({ length: 60 }, (_, i) => ({
-      id: i,
-      x: Math.random() * 100,
-      y: Math.random() * 100,
-      size: Math.random() * 2.5 + 0.5,
-      dur: Math.random() * 3 + 2,
-      delay: Math.random() * 4,
-    }))
-  );
+  const now = useLiveClock();
 
+  const BIRTHDAY_CHARS = t.revealTitleChars;
+
+  // Phases: countdown → reveal → subtext → cake → video → quote → next
+  const [cdNum, setCdNum]           = useState(3);        // countdown 3 2 1
+  const [phase, setPhase]           = useState('countdown'); // countdown | reveal | full
+  const [revealedChars, setRevealedChars] = useState(0);
+  const [showClock, setShowClock]   = useState(false);
+  const [showSubText, setShowSubText] = useState(false);
+  const [showCake, setShowCake]     = useState(false);
+  const [showConfetti, setShowConfetti] = useState(false);
+  const [showVideo, setShowVideo]   = useState(false);
+  const [showVideoBtn, setShowVideoBtn] = useState(false);
+  const [showQuote, setShowQuote]   = useState(false);
+  const [showNextBtn, setShowNextBtn] = useState(false);
+  const revealStarted = useRef(false);
+
+  // ── Countdown 3 → 2 → 1 ─────────────────────────────────────
   useEffect(() => {
+    if (phase !== 'countdown') return;
+
+    const steps = [
+      { num: 3, delay: 0 },
+      { num: 2, delay: 1000 },
+      { num: 1, delay: 2000 },
+      { num: 0, delay: 3000 }, // 0 triggers reveal
+    ];
+
+    const timers = steps.map(({ num, delay }) =>
+      setTimeout(() => {
+        if (num === 0) {
+          setPhase('reveal');
+          setShowClock(true);
+        } else {
+          setCdNum(num);
+        }
+      }, delay)
+    );
+    return () => timers.forEach(clearTimeout);
+  }, [phase]);
+
+  // ── Character-by-character reveal of HAPPY BIRTHDAY ──────────
+  useEffect(() => {
+    if (phase !== 'reveal' || revealStarted.current) return;
+    revealStarted.current = true;
+
     let i = 0;
     const timer = setInterval(() => {
       i++;
       setRevealedChars(i);
       if (i >= BIRTHDAY_CHARS.length) {
         clearInterval(timer);
-        setTimeout(() => setShowSubText(true), 500); // 1. Subtext ("Today is your special day")
-        setTimeout(() => { setShowCake(true); setShowConfetti(true); }, 1500); // 2. Cake & Confetti
-        setTimeout(() => setShowVideoBtn(true), 2500); // 3. Video button
-        setTimeout(() => setShowNextBtn(true), 3500); // 4. Next button
+        setPhase('full');
+        setTimeout(() => setShowSubText(true), 500);
+        setTimeout(() => { setShowCake(true); setShowConfetti(true); }, 1400);
+        setTimeout(() => setShowVideoBtn(true), 2400);
+        setTimeout(() => setShowQuote(true), 3200);
+        setTimeout(() => setShowNextBtn(true), 4000);
       }
-    }, 150);   // increased speed (from 260 to 150)
+    }, 140);
     return () => clearInterval(timer);
-  }, [BIRTHDAY_CHARS.length]);
+  }, [phase, BIRTHDAY_CHARS.length]);
 
+  // ── Auto-stop confetti ────────────────────────────────────────
   useEffect(() => {
-    if (showConfetti) {
-      const t = setTimeout(() => setShowConfetti(false), 4000);
-      return () => clearTimeout(t);
-    }
+    if (!showConfetti) return;
+    const t = setTimeout(() => setShowConfetti(false), 5000);
+    return () => clearTimeout(t);
   }, [showConfetti]);
 
+  // ── COUNTDOWN SCREEN ─────────────────────────────────────────
+  if (phase === 'countdown') {
+    return (
+      <div className="stage-wrapper reveal-stage stage-enter reveal-dark">
+        {STARS.map(s => (
+          <div key={s.id} className="star"
+            style={{ left:`${s.x}%`, top:`${s.y}%`, width:`${s.size}px`, height:`${s.size}px`,
+                     animationDuration:`${s.dur}s`, animationDelay:`${s.delay}s` }}
+          />
+        ))}
+        {ORBS.map(o => (
+          <div key={o.id} className="rev-orb"
+            style={{ left:`${o.x}%`, top:`${o.y}%`, width:`${o.size}px`, height:`${o.size}px`,
+                     animationDuration:`${o.dur}s`, animationDelay:`${o.delay}s` }}
+          />
+        ))}
+        <Fireflies count={20} />
+        <div className="cd-wrap">
+          <p className="cd-label">Get ready…</p>
+          <div className="cd-number" key={cdNum}>{cdNum}</div>
+          <div className="cd-sparkles">
+            {['✦','✦','✦'].map((s,i) => <span key={i} className="cd-spark" style={{'--i':i}}>{s}</span>)}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // ── REVEAL + FULL SCREEN ─────────────────────────────────────
   return (
     <div className="stage-wrapper reveal-stage stage-enter">
-      {/* Star field */}
-      {stars.map(s => (
-        <div
-          key={s.id}
-          className="star"
-          style={{
-            left: `${s.x}%`, top: `${s.y}%`,
-            width: `${s.size}px`, height: `${s.size}px`,
-            animationDuration: `${s.dur}s`,
-            animationDelay: `${s.delay}s`,
-          }}
+      {STARS.map(s => (
+        <div key={s.id} className="star"
+          style={{ left:`${s.x}%`, top:`${s.y}%`, width:`${s.size}px`, height:`${s.size}px`,
+                   animationDuration:`${s.dur}s`, animationDelay:`${s.delay}s` }}
+        />
+      ))}
+      {ORBS.map(o => (
+        <div key={o.id} className="rev-orb"
+          style={{ left:`${o.x}%`, top:`${o.y}%`, width:`${o.size}px`, height:`${o.size}px`,
+                   animationDuration:`${o.dur}s`, animationDelay:`${o.delay}s` }}
         />
       ))}
 
@@ -75,6 +174,14 @@ export default function BirthdayReveal({ onNext }) {
       <Confetti active={showConfetti} count={100} />
 
       <div className="reveal-content">
+        {/* Live clock */}
+        {showClock && (
+          <div className="rev-clock" style={{ animation: 'fadeInScale 0.7s ease forwards' }}>
+            <p className="rev-clock-date">{formatDate(now)}</p>
+            <p className="rev-clock-time">{formatTime(now)}</p>
+          </div>
+        )}
+
         {/* Main birthday text */}
         <h1 className="birthday-headline">
           {BIRTHDAY_CHARS.map((ch, i) => (
@@ -106,6 +213,7 @@ export default function BirthdayReveal({ onNext }) {
                       fill="url(#hg)"/>
               </svg>
             </p>
+            <p className="rev-sweetheart">My Sweetheart ❤️</p>
           </div>
         )}
 
@@ -113,18 +221,14 @@ export default function BirthdayReveal({ onNext }) {
         {showCake && (
           <div className="cake-wrap">
             <div className="cake-plate">
-              {/* Candles */}
               <div className="candles-row">
                 {[1,2,3].map(i => (
                   <div key={i} className="candle-group">
-                    <div className="flame">
-                      <div className="flame-inner" />
-                    </div>
+                    <div className="flame"><div className="flame-inner" /></div>
                     <div className="candle" style={{ background: ['#FFD166','#FF008C','#C77DFF'][i-1] }} />
                   </div>
                 ))}
               </div>
-              {/* Cake tiers */}
               <div className="cake-top-tier">
                 <div className="cake-deco-dots">
                   {[0,1,2,3,4].map(i => <span key={i} className="deco-dot" />)}
@@ -167,9 +271,16 @@ export default function BirthdayReveal({ onNext }) {
           </div>
         )}
 
+        {/* Birthday quote */}
+        {showQuote && (
+          <p className="rev-quote" style={{ animation: 'fadeInScale 0.8s ease forwards' }}>
+            "May this new chapter of your life be filled with everything your heart quietly wishes for. ✨"
+          </p>
+        )}
+
         {showNextBtn && (
           <button className="btn-glow next-btn" onClick={onNext}>
-            {t.revealNextBtn}
+            Continue →
           </button>
         )}
       </div>

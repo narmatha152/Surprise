@@ -39,14 +39,15 @@
 /* Birthday headline */
 .birthday-headline {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 7vw, 4.5rem);
+  font-size: clamp(1.5rem, 4.2vw, 3rem);
   font-weight: 700;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
   gap: 0;
   line-height: 1.2;
+  white-space: nowrap;
 }
 
 .bday-char {
@@ -281,3 +282,133 @@
   .cake-mid-tier { width: 140px; }
   .cake-base-tier { width: 175px; }
 }
+
+/* ── Countdown ──────────────────────────────────────── */
+.reveal-dark {
+  background: radial-gradient(ellipse at center, #060010 0%, #020005 100%) !important;
+}
+
+.cd-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  z-index: 2;
+}
+
+.cd-label {
+  font-family: var(--font-script);
+  font-size: clamp(1.2rem, 4vw, 1.8rem);
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 2px;
+  animation: fadeInScale 0.6s ease forwards;
+}
+
+.cd-number {
+  font-family: var(--font-display);
+  font-size: clamp(7rem, 25vw, 14rem);
+  font-weight: 700;
+  line-height: 1;
+  background: linear-gradient(135deg, #FFD166 0%, #FF008C 60%, #C90078 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 40px rgba(255, 209, 102, 0.5))
+          drop-shadow(0 0 80px rgba(201, 0, 120, 0.4));
+  animation: cdPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes cdPop {
+  0%   { opacity: 0; transform: scale(2); filter: blur(12px); }
+  100% { opacity: 1; transform: scale(1); filter: blur(0); }
+}
+
+.cd-sparkles {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.cd-spark {
+  color: var(--color-gold);
+  font-size: 1.4rem;
+  animation: sparkFly 0.8s ease forwards;
+  animation-delay: calc(var(--i) * 0.15s);
+  opacity: 0;
+}
+
+/* ── Golden ambient light orbs ─────────────────────── */
+.rev-orb {
+  position: fixed;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 220, 100, 0.55), transparent 70%);
+  pointer-events: none;
+  animation: orbFloat ease-in-out infinite alternate;
+  z-index: 0;
+  filter: blur(2px);
+}
+
+@keyframes orbFloat {
+  0%   { opacity: 0.15; transform: translate(0, 0) scale(1); }
+  100% { opacity: 0.55; transform: translate(8px, -10px) scale(1.25); }
+}
+
+/* ── Live Clock ────────────────────────────────────── */
+.rev-clock {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 209, 102, 0.25);
+  border-radius: var(--radius-lg);
+  padding: 0.8rem 2rem;
+  backdrop-filter: blur(12px);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.rev-clock-date {
+  font-family: var(--font-body);
+  font-size: clamp(0.75rem, 2vw, 0.9rem);
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.rev-clock-time {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, #FFD166, #FF008C);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 4px;
+  filter: drop-shadow(0 0 10px rgba(255, 209, 102, 0.3));
+}
+
+/* ── Sweetheart line ───────────────────────────────── */
+.rev-sweetheart {
+  font-family: var(--font-script);
+  font-size: clamp(1.2rem, 3.5vw, 1.7rem);
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 1px;
+}
+
+/* ── Birthday quote ────────────────────────────────── */
+.rev-quote {
+  max-width: 520px;
+  font-family: var(--font-script);
+  font-size: clamp(1rem, 3vw, 1.35rem);
+  color: var(--color-gold);
+  line-height: 1.8;
+  text-align: center;
+  font-style: italic;
+  opacity: 0.9;
+  padding: 0 1rem;
+}
+
+@media (max-width: 480px) {
+  .cd-number { font-size: 8rem; }
+  .rev-clock { padding: 0.6rem 1.4rem; }
+  .rev-clock-time { font-size: 2rem; }
+}
+

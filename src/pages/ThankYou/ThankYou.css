@@ -1,0 +1,150 @@
+/* ============================================================
+   THANK YOU SCREEN
+   ============================================================ */
+
+.thankyou-stage {
+  background: radial-gradient(ellipse at 30% 20%, #260019 0%, #050006 60%, #68003F 100%);
+  flex-direction: column;
+  padding: 2rem 1rem;
+  overflow: hidden;
+}
+
+/* Floating hearts */
+.ty-heart {
+  position: fixed;
+  top: 110%;
+  pointer-events: none;
+  animation: heartFloat linear infinite;
+  opacity: 0;
+  z-index: 0;
+  user-select: none;
+}
+
+@keyframes heartFloat {
+  0%   { transform: translateY(0) rotate(-10deg); opacity: 0; }
+  10%  { opacity: 0.7; }
+  90%  { opacity: 0.4; }
+  100% { transform: translateY(-120vh) rotate(10deg); opacity: 0; }
+}
+
+/* Glass card */
+.ty-card {
+  position: relative;
+  z-index: 2;
+  max-width: 560px;
+  width: 100%;
+  padding: 3rem 2.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.4rem;
+  border: 1px solid var(--glass-border-gold);
+  opacity: 0;
+  transform: scale(0.88) translateY(30px);
+  transition: opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ty-card-visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* Top glow orb */
+.ty-orb {
+  position: absolute;
+  top: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,0,120,0.45), transparent 70%);
+  filter: blur(30px);
+  pointer-events: none;
+}
+
+.ty-crown {
+  font-size: 3rem;
+  animation: float 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 16px rgba(255,209,102,0.7));
+}
+
+.ty-main {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 4.5vw, 2rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.5;
+}
+
+.ty-sweep {
+  display: inline;
+}
+
+.ty-heart-inline {
+  display: inline-block;
+  animation: heartPulse 1.6s ease-in-out infinite;
+}
+
+@keyframes heartPulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.25); }
+}
+
+.ty-divider {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.ty-star {
+  color: var(--color-gold);
+  font-size: 1rem;
+  opacity: 0.6;
+  animation: float 2s ease-in-out infinite;
+}
+
+.ty-star:nth-child(2) { animation-delay: 0.4s; }
+.ty-star:nth-child(3) { animation-delay: 0.8s; }
+
+.ty-birthday {
+  font-family: var(--font-script);
+  font-size: clamp(1.6rem, 5vw, 2.4rem);
+  background: linear-gradient(135deg, #FFD166, #FF008C);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 12px rgba(255, 0, 140, 0.4));
+}
+
+.ty-subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.7;
+}
+
+.ty-more {
+  font-family: var(--font-script);
+  font-size: 1rem;
+  color: var(--color-gold);
+  opacity: 0.8;
+}
+
+.ty-btn {
+  margin-top: 0.5rem;
+  padding: 0.9rem 2.8rem;
+  font-size: 1rem;
+}
+
+@media (max-width: 480px) {
+  .ty-card {
+    padding: 2.2rem 1.4rem;
+    gap: 1.1rem;
+  }
+  .ty-main {
+    font-size: 1.2rem;
+  }
+}

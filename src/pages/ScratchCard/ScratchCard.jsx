@@ -222,7 +222,7 @@ function LetterCard({ onClose, onNext, lang, t }) {
         clearInterval(timer);
         setDone(true);
       }
-    }, 35);  // 35 ms per character — slow typewriter feel
+    }, 100);  // 80 ms per character — slow typewriter feel
     return () => clearInterval(timer);
   }, [content.length]);
 
